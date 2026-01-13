@@ -12,8 +12,8 @@ The system acts as a middleware layer between WhatsApp customers and restaurant 
 ## Tech Stack
 
 - **Backend:** Django + Django REST Framework (DRF)
-- **Database:** PostgreSQL (recommended)
-- **Frontend:** React (for Staff Dashboard)
+- **Database:** SQLite (for MVP) / PostgreSQL (recommended for production)
+- **Frontend:** React + TypeScript
 - **WhatsApp Integration:** Meta WhatsApp Cloud API (or equivalent)
 
 ## Core Features
@@ -26,4 +26,46 @@ The system acts as a middleware layer between WhatsApp customers and restaurant 
 
 ## Getting Started
 
-(Instructions for setup will be added as implementation progresses)
+### Backend Setup
+
+1. Navigate to the backend directory:
+   ```bash
+   cd backend
+   ```
+2. Install dependencies:
+   ```bash
+   pip install django djangorestframework django-cors-headers
+   ```
+3. Run migrations:
+   ```bash
+   python manage.py migrate
+   ```
+4. Create a superuser:
+   ```bash
+   python manage.py createsuperuser
+   ```
+5. Start the server:
+   ```bash
+   python manage.py runserver
+   ```
+
+### Frontend Setup
+
+1. Navigate to the frontend directory:
+   ```bash
+   cd frontend
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the development server:
+   ```bash
+   npm start
+   ```
+
+## API Endpoints
+
+- **Webhook:** `POST /api/chat/webhook/whatsapp/` - Receives WhatsApp messages.
+- **Orders:** `GET /api/orders/` - Lists orders for the dashboard.
+- **Admin:** `/admin/` - Manage restaurants, menus, and orders.
